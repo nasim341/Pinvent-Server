@@ -8,6 +8,7 @@ require("dotenv").config();
 const morgan = require("morgan");
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
+const errorHandler = require("./middlewares/errorHandler")
 
 
 app.use(helmet());
@@ -18,12 +19,13 @@ app.use(morgan("dev"));
 app.use(cors());
 
 //rotes middleware
-readdirSync("./routes").map(r => map.use("/api/v1", require(`.rputes/${r}`)))
+readdirSync("./routes").map(r => app.use("/api/v1", require(`./routes/${r}`)))
 
 //server
 const port = process.env.PORT || 5000;
 
 //error middleware
+app.use(errorHandler)
 
 mongoose
     .connect(process.env.DATABASE)

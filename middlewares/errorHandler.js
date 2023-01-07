@@ -7,4 +7,4 @@ const errorHandler = (err, req, res, next) => {
         stack: process.env.NODE_ENV === "development" ? err.satck : null
     })
 };
-modeule.exports = errorHandler;
+module.exports = errorHandler;
