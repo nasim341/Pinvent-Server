@@ -118,7 +118,7 @@ const loginUser = asyncHandler(async(req, res) => {
         throw new Error("Invalid email or password");
     }
 });
-// Logout User
+/* // Logout User
 const logout = asyncHandler(async(req, res) => {
     res.cookie("token", "", {
         path: "/",
@@ -148,10 +148,10 @@ const getUser = asyncHandler(async(req, res) => {
         res.status(400);
         throw new Error("User Not Found");
     }
-});
+}); */
 
 module.exports = {
     registerUser,
     loginUser,
-    logout
+    //logout
 }
